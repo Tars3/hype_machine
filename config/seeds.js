@@ -1,13 +1,11 @@
 require('dotenv').load();
 var mongoose = require('./database');
 
-// var Book = require('../models/book');
-// var Game = require('../models/game');
-var Show = require('../models/entry');
-// var Todo = require('../models/todo');
+var Entry = require('../models/entry');
 
 var entries = [
-  { image: "Twilight",
+  {
+    image: "Twilight",
     description: "Stephenie Meyer",
     votes: "1"
   },
@@ -15,53 +13,25 @@ var entries = [
     image: "Design Patterns",
     description: "Gang of Four",
     votes: "20"
+  },
+  {
+    image: "https://i1.wp.com/hypebeast.com/image/2016/05/New-Adidas-Yeezy-750-Boost-colorway-00001.jpg?w=1382",
+    description: "Adidas Yeezy 750",
+    votes: "51"
   }
 ];
 
-// Book.remove({}, function(err) {
-//   if (err) console.log(err);
-//   Book.create(books, function(err, books) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log("Database seeded with " + books.length + " books.");
-//     }
-//   });
-// });
+Entry.remove({}, function(err) {
+  if (err) console.log(err);
+  Entry.create(entries, function(err, entries) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Database seeded with " + entries.length + " entries.");
+      mongoose.connection.close();
+    }
+    process.exit();
+  });
+});
 
-// Game.remove({}, function(err) {
-//   if (err) console.log(err);
-//   Game.create(games, function(err, games) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log("Database seeded with " + games.length + " games.");
-//     }
-//   });
-// });
 
-// Show.remove({}, function(err) {
-//   if (err) console.log(err);
-//   Show.create(shows, function(err, shows) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log("Database seeded with " + shows.length + " shows.");
-//       mongoose.connection.close();
-//     }
-//     process.exit();
-//   });
-// });
-
-// Todo.remove({}, function(err) {
-//   if (err) console.log(err);
-//   Todo.create(todos, function(err, todos) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       console.log("Database seeded with " + todos.length + " books.");
-//       mongoose.connection.close();
-//     }
-//     process.exit();
-//   });
-// });

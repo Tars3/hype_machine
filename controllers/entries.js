@@ -1,7 +1,7 @@
 var Entry = require('../models/entry');
 
 module.exports = {
-  index: index,
+  index: index
   // show: show
 }
 

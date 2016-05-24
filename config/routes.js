@@ -4,8 +4,8 @@ var router = express.Router();
 var entriesController = require('../controllers/entries');
 
 router.route('/api/entries')
-  .get(entriesController.index);
-  // .post(entriesController.create);
+  .get(entriesController.index)
+  .post(entriesController.create);
 
 // router.route('/api/entries/:id')
 //   .get(entriesController.show)

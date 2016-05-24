@@ -1,0 +1,18 @@
+<div>
+  <h3>Add New Post</h3>
+  <form id='new-entry' ng-submit="entryNewVm.addEntry()">
+    <div>
+      <label for="image">Image:</label>
+      <input type="text" name="image" ng-model="entryNewVm.newEntry.image">
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" name="description" ng-model="entryNewVm.newEntry.description">
+    </div>
+    <div>
+      <label for="votes">Votes:</label>
+      <input type="number" name="votes" ng-model="entryNewVm.newEntry.votes">
+    </div>
+    <input type="submit" value="Add">
+  </form>
+</div>

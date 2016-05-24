@@ -8,13 +8,22 @@
     $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'home.html'
+        abstract: true,
+        views: {
+          'header' : {
+              templateUrl: 'home.html'
+          }
+        }
       })
-      .state('entryList', {
-        url: '/entries/list',
-        templateUrl: "js/entries/entry-list.html",
-        controller: 'EntryListController',
-        controllerAs: 'entryListVm'
+      .state('home.entryList', {
+        url: '',
+        views: {
+          'content@' : {
+            templateUrl: "js/entries/entry-list.html",
+            controller: 'EntryListController',
+            controllerAs: 'entryListVm'
+          }
+        }
       })
       // .state('showShow', {
       //   url: '/shows/show/:id',
@@ -22,12 +31,19 @@
       //   controller: 'ShowShowController',
       //   controllerAs: 'showShowVm'
       // })
-      // .state('showNew', {
-      //   url: '/shows/new',
-      //   templateUrl: 'js/shows/show-new.html',
-      //   controller: 'ShowNewController',
-      //   controllerAs: 'showNewVm'
-      // })
+      .state('home.entryNew', {
+        url: 'entries/new',
+        views: {
+          'content@': {
+              templateUrl: 'js/entries/entry-new.html',
+              controller: 'EntryNewController',
+              controllerAs: 'entryNewVm'
+          }
+        }
+      })
+      .state('home.showEntry', {
+        url: 'entries/:id'
+      });
       // .state('showEdit', {
       //   url: '/shows/edit/:id',
       //   templateUrl: 'js/shows/show-edit.html',

@@ -1,2 +1,10 @@
-<p>This is my landing page.  There is no controller attached</p>
-<a ui-sref="showList">See all shows</a>
+<h1>HYPE MACHINE</h1>
+<p>Welcome to cool.</p>
+
+<div ng-repeat="entry in entryListVm.entry">
+  <p>{{entry.image}}</p>
+  <p>{{entry.description}}</p>
+  <p>{{entry.votes}}</p>
+   {{1+1}}
+  <hr>
+</div>

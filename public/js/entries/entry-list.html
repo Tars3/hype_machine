@@ -1,7 +1,7 @@
-Entry List Template
-<a ui-sref="home.entryNew">Add a new post</a>
+<!-- Entry List Template -->
+<a ui-sref="home.entryNew">Post Cool</a>
 <div ng-repeat="entry in entryListVm.entries">
-  <p>{{entry.image}} </p>
+  <p><img ng-src="{{entry.image}}" alt="image not displaying"></p>
   <p>{{entry.description}} </p>
   <p>{{entry.votes}} </p>
   <hr>

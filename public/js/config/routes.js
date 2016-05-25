@@ -11,7 +11,9 @@
         abstract: true,
         views: {
           'header' : {
-              templateUrl: 'home.html'
+              templateUrl: 'home.html',
+              // controller: 'headerController',
+              // controllerAs: 'headerAsVm'
           }
         }
       })
@@ -26,7 +28,7 @@
         }
       })
       .state('home.viewEntry', {
-        url: 'entries/:id',
+        url: 'entry/:id',
         views: {
           'content@': {
               templateUrl: 'js/entries/entry.html',
@@ -42,6 +44,16 @@
               templateUrl: 'js/entries/entry-new.html',
               controller: 'EntryNewController',
               controllerAs: 'entryNewVm'
+          }
+        }
+      })
+      .state('home.signIn', {
+        url: 'signIn',
+        views: {
+          'content@': {
+            templateUrl: 'js/signIn.html',
+            controller: 'SignInController',
+            controllerAs: 'vm'
           }
         }
       });

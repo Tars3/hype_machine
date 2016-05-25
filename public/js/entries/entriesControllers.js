@@ -13,20 +13,20 @@
     function EntryListController(EntryResource) {
       var vm = this;
       vm.entries = [];
-      // vm.destroy = destroy;
+      vm.destroy = destroy;
 
       EntryResource.query().$promise.then(function(entries) {
         vm.entries = entries;
       });
 
-      // function destroy(showToDelete) {
-      //   ShowResource.delete({id: showToDelete._id}).$promise.then(function (response) {
-      //     console.log(response.message);
-      //     vm.shows = vm.shows.filter(function(show) {
-      //       return show != showToDelete;
-      //     });
-      //   });
-      // }
+      function destroy(entryToDelete) {
+        EntryResource.delete({id: entryToDelete._id}).$promise.then(function (response) {
+          console.log(response.message);
+          vm.entries = vm.entries.filter(function(entry) {
+            return entry != entryToDelete;
+          });
+        });
+      }
     }
 
     function EntryViewController(EntryResource, $stateParams) {
@@ -46,7 +46,7 @@
       function addEntry() {
         EntryResource.save(vm.newEntry).$promise.then(function(jsonEntry) {
           vm.newEntry = {};
-          $state.go('home.showEntry', {id: jsonEntry._id});
+          $state.go('home.viewEntry', {id: jsonEntry._id});
         });
       }
     }

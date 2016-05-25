@@ -9,10 +9,10 @@ var usersCtrl = require('../controllers/users')
 var token = require('../config/token_auth')
 
 // users resource paths:
-router.post('/users', usersCtrl.create);
-router.get('/users/me', token.authenticate, usersCtrl.me);
+router.post('/api/users', usersCtrl.create);
+router.get('/api/users/me', token.authenticate, usersCtrl.me);
 
-router.post('/token', token.create);
+router.post('/api/token', token.create);
 
 router.route('/api/entries')
   .get(entriesController.index)
@@ -21,7 +21,7 @@ router.route('/api/entries')
 router.route('/api/entries/:id')
   .get(entriesController.entry)
 //   .put(entriesController.update)
-//   .delete(entriesController.destroy);
+  .delete(entriesController.destroy);
 
 /* GET home page. */
 router.get('*', function(req, res, next) {

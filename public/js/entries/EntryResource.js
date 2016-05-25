@@ -5,7 +5,6 @@
   EntryResource.$inject = ['$resource'];
 
   function EntryResource($resource) {
-
     return $resource(
       "/api/entries/:id",
       {id: '@id'}, {

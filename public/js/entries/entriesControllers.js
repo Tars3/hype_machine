@@ -1,12 +1,12 @@
 (function() {
   angular.module('hype_machineApp')
     .controller("EntryListController", EntryListController)
-    // .controller("ShowShowController", ShowShowController)
+    .controller("EntryViewController", EntryViewController)
     .controller("EntryNewController", EntryNewController)
-    // .controller("ShowEditController", ShowEditController);
+    // .controller("EntryEditController", EntryEditController);
 
     EntryListController.$inject = ['EntryResource'];
-    // ShowShowController.$inject = ['ShowResource', '$stateParams'];
+    EntryViewController.$inject = ['EntryResource', '$stateParams'];
     EntryNewController.$inject = ['EntryResource', '$state'];
     // ShowEditController.$inject = ['ShowResource', '$stateParams', '$state'];
 
@@ -16,7 +16,6 @@
       // vm.destroy = destroy;
 
       EntryResource.query().$promise.then(function(entries) {
-        console.log('In the query resolved promise', entries);
         vm.entries = entries;
       });
 
@@ -30,14 +29,14 @@
       // }
     }
 
-    // function ShowShowController(ShowResource, $stateParams) {
-    //   var vm = this;
-    //   vm.show = {};
+    function EntryViewController(EntryResource, $stateParams) {
+      var vm = this;
+      vm.entry = {};
 
-    //   ShowResource.get({id: $stateParams.id}).$promise.then(function(jsonShow) {
-    //       vm.show = jsonShow;
-    //   });
-    // }
+      EntryResource.get({id: $stateParams.id}).$promise.then(function(jsonEntry) {
+          vm.entry = jsonEntry;
+      });
+    }
 
     function EntryNewController(EntryResource, $state) {
       var vm = this;

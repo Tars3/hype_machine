@@ -25,12 +25,16 @@
           }
         }
       })
-      // .state('showShow', {
-      //   url: '/shows/show/:id',
-      //   templateUrl: 'js/shows/show-show.html',
-      //   controller: 'ShowShowController',
-      //   controllerAs: 'showShowVm'
-      // })
+      .state('home.viewEntry', {
+        url: 'entries/:id',
+        views: {
+          'content@': {
+              templateUrl: 'js/entries/entry.html',
+              controller: 'EntryViewController',
+              controllerAs: 'entryVm'
+          }
+        }
+      })
       .state('home.entryNew', {
         url: 'entries/new',
         views: {
@@ -40,16 +44,7 @@
               controllerAs: 'entryNewVm'
           }
         }
-      })
-      .state('home.showEntry', {
-        url: 'entries/:id'
       });
-      // .state('showEdit', {
-      //   url: '/shows/edit/:id',
-      //   templateUrl: 'js/shows/show-edit.html',
-      //   controller: 'ShowEditController',
-      //   controllerAs: 'showEditVm'
-      // });
 
     $urlRouterProvider.otherwise('/');
   }

@@ -4,5 +4,7 @@
   <p><img ng-src="{{entry.image}}" alt="image not displaying"></p>
   <p>{{entry.description}} </p>
   <p>{{entry.votes}} </p>
+  <a ui-sref="home.viewEntry({id: entry._id})">See this Post</a>
+  <!-- <a ng-click="entryListVm.destroy(entry)">Not Cool.</a> -->
   <hr>
 </div>

@@ -14,6 +14,8 @@ router.get('/api/users/me', token.authenticate, usersCtrl.me);
 
 router.post('/api/token', token.create);
 
+router.put('/api/upvote/:id', entriesController.upvote)
+
 router.route('/api/entries')
   .get(entriesController.index)
   .post(entriesController.create);

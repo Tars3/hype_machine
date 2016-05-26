@@ -5,19 +5,21 @@
     .controller("EntryNewController", EntryNewController)
     // .controller("EntryEditController", EntryEditController);
 
-    EntryListController.$inject = ['EntryResource'];
+    EntryListController.$inject = ['EntryResource', '$http'];
     EntryViewController.$inject = ['EntryResource', '$stateParams'];
     EntryNewController.$inject = ['EntryResource', '$state'];
     // ShowEditController.$inject = ['ShowResource', '$stateParams', '$state'];
 
-    function EntryListController(EntryResource) {
+    function EntryListController(EntryResource, $http) {
       var vm = this;
       vm.voteColor = voteColor;
       vm.entries = [];
       vm.destroy = destroy;
+      vm.upvote = upvote;
 
       EntryResource.query().$promise.then(function(entries) {
         vm.entries = entries;
+        console.log(vm.entries);
       });
 
       function destroy(entryToDelete) {
@@ -27,6 +29,20 @@
             return entry != entryToDelete;
           });
         });
+      }
+
+      // function for upvotes
+      function upvote(entry) {
+        entry.votes = entry.votes + 1;
+        // AJAX call, using $http
+        $http
+          .put('/api/upvote/' +entry._id, entry)
+          .then(function(res) {
+            console.log(res.data);
+          },
+          function(err) {
+            console.log(err)
+          });
       }
     }
 
@@ -58,9 +74,21 @@
         return "blue"
       } else if (votes <= 20) {
         return "pink"
+      } else if (votes <= 30) {
+        return "orange"
+      } else if (votes <= 40) {
+        return "purple"
+      } else if (votes <= 50) {
+        return "green"
+      } else if (votes <= 60) {
+        return "red lighten-3"
+      } else if (votes <= 70) {
+        return "red lighten-2"
+      } else if (votes <= 80) {
+        return "red lighten-1"
       } else {
         return "red"
-      }
+      };
     }
 
     // function ShowEditController(ShowResource, $stateParams, $state) {

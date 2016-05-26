@@ -1,5 +1,3 @@
-Entry List
-<a ui-sref="home.entryNew">Post Cool</a>
   <div class="row">
   <div class="col s12 m6" ng-repeat="entry in entryListVm.entries">
       <div class="card {{entryListVm.voteColor(entry.votes)}}">
@@ -7,12 +5,14 @@ Entry List
           <img ng-src="{{entry.image}}">
         </div>
         <div class="card-content white-text">
-          <p><h5>{{entry.description}}</h5></p>
+          <p><h5 class="thin">{{entry.description}}</h5></p>
+          <p>{{entry.votes}}</p>
         </div>
         <div class="card-action">
-          <a ui-sref="home.viewEntry({id: entry._id})">Peep the Cool</a>
-          <a href="" ng-click="entryListVm.destroy(entry)">Destroy the Cool</a>
-          <a href="" ng-click="entryListVm.(entry)">Hype it up</a>
+          <a ui-sref="home.viewEntry({id: entry._id})" class="white-text thin">Peep the Cool</a>
+          <a href="" ng-click="entryListVm.destroy(entry)" class="white-text thin">Destroy the Cool</a>
+          <a href="" ng-click="entryListVm.upvote(entry)" class="white-text thin">Hype it up</a>
+          <a class="btn-floating btn-large waves-effect waves-light grey right"><i class="material-icons">add</i></a>
         </div>
       </div>
     </div>

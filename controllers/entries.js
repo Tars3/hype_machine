@@ -4,7 +4,8 @@ module.exports = {
   index: index,
   entry: entry,
   create: create,
-  destroy: destroy
+  destroy: destroy,
+  upvote: upvote
 }
 
 function index (req, res, next) {
@@ -24,6 +25,20 @@ function entry(req, res, next) {
 
     res.json(entry);
   });
+}
+
+// upvote backend call
+function upvote(req, res, next) {
+  var id = req.params.id;
+  Entry.findById(id, function(err, entry) {
+    if (err) next (err);
+    entry.votes = req.body.votes;
+
+    entry.save(function(err, updatedEntry) {
+      if (err) next (err);
+      res.json(updatedEntry)
+    })
+  })
 }
 
 function create(req, res, next) {

@@ -1,6 +1,5 @@
 require('dotenv').load();
 var mongoose = require('./database');
-
 var Entry = require('../models/entry');
 
 var entries = [
@@ -18,11 +17,21 @@ var entries = [
     image: "https://i1.wp.com/hypebeast.com/image/2016/05/New-Adidas-Yeezy-750-Boost-colorway-00001.jpg?w=1382",
     description: "Adidas Yeezy 750",
     votes: 51
-  }
+  },
   {
     image: "http://www.consumerreports.org/content/dam/cro/news_articles/cars/CR-Cars-II-2018-Tesla-Model-3-silver-pr-4-16.jpg",
     description: "Tesla Model 3",
     votes: 3
+  },
+  {
+    image: "http://www.lg.com/ro/images/TV/features/ro_sup_he_hero_005.jpg",
+    description: "LG 65GXP OLED TV",
+    votes: 65
+  },
+  {
+    image: "http://www.notebookcheck.net/uploads/tx_nbc2/4zu3macbook12.jpg",
+    description: "Apple Macbook 2016",
+    votes: 16
   }
 ];
 

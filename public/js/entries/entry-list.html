@@ -5,10 +5,9 @@ Entry List
       <div class="card {{entryListVm.voteColor(entry.votes)}}">
         <div class="card-image">
           <img ng-src="{{entry.image}}">
-          <span class="card-title">{{entry.description}}</span>
         </div>
-        <div class="card-content">
-          <p>Votes: {{entry.votes}}</p>
+        <div class="card-content white-text">
+          <p><h5>{{entry.description}}</h5></p>
         </div>
         <div class="card-action">
           <a ui-sref="home.viewEntry({id: entry._id})">Peep the Cool</a>

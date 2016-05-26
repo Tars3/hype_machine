@@ -1,8 +1,8 @@
-Entry List Template
+Entry List
 <a ui-sref="home.entryNew">Post Cool</a>
   <div class="row">
   <div class="col s12 m6" ng-repeat="entry in entryListVm.entries">
-      <div class="card pink lighten-2">
+      <div class="card {{entryListVm.voteColor(entry.votes)}}">
         <div class="card-image">
           <img ng-src="{{entry.image}}">
           <span class="card-title">{{entry.description}}</span>
@@ -14,7 +14,6 @@ Entry List Template
           <a ui-sref="home.viewEntry({id: entry._id})">Peep the Cool</a>
           <a href="" ng-click="entryListVm.destroy(entry)">Destroy the Cool</a>
           <a href="" ng-click="entryListVm.(entry)">Hype it up</a>
-
         </div>
       </div>
     </div>

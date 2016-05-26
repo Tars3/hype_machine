@@ -12,6 +12,7 @@
 
     function EntryListController(EntryResource) {
       var vm = this;
+      vm.voteColor = voteColor;
       vm.entries = [];
       vm.destroy = destroy;
 
@@ -48,6 +49,17 @@
           vm.newEntry = {};
           $state.go('home.viewEntry', {id: jsonEntry._id});
         });
+      }
+    }
+
+    // function for changing color of cards according to votes.
+    function voteColor(votes) {
+      if (votes <= 10 ) {
+        return "blue"
+      } else if (votes <= 20) {
+        return "pink"
+      } else {
+        return "red"
       }
     }
 

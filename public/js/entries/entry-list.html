@@ -1,5 +1,5 @@
   <div class="row">
-  <div class="col s12 m6" ng-repeat="entry in entryListVm.entries">
+    <div class="col s12 m6" ng-repeat="entry in entryListVm.entries">
       <div class="card {{entryListVm.voteColor(entry.votes)}}">
         <div class="card-image">
           <img ng-src="{{entry.image}}">
@@ -11,8 +11,7 @@
         <div class="card-action">
           <a ui-sref="home.viewEntry({id: entry._id})" class="white-text thin">Peep the Cool</a>
           <a href="" ng-click="entryListVm.destroy(entry)" class="white-text thin">Destroy the Cool</a>
-          <a href="" ng-click="entryListVm.upvote(entry)" class="white-text thin">Hype it up</a>
-          <a class="btn-floating btn-large waves-effect waves-light grey right"><i class="material-icons">add</i></a>
+          <a href="" ng-click="entryListVm.upvote(entry)" class="btn-floating btn-large waves-effect waves-light grey right"><i class="material-icons">add</i></a>
         </div>
       </div>
     </div>

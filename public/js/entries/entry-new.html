@@ -1,5 +1,6 @@
 <div>
-  <h3>Post the Cool</h3>
+  <h4 class="thin pink-text">Post the Cool</h4>
+  <container class="col s12 m10 offset-m1">
   <form id='new-entry' ng-submit="entryNewVm.addEntry()">
     <div>
       <label for="image">Image:</label>
@@ -9,10 +10,11 @@
       <label for="description">Description:</label>
       <input type="text" name="description" ng-model="entryNewVm.newEntry.description">
     </div>
-    <div>
+    <!-- <div>
       <label for="votes">Votes:</label>
       <input type="number" name="votes" ng-model="entryNewVm.newEntry.votes">
-    </div>
+    </div> -->
     <input type="submit" value="Add" class="waves-effect waves-light btn pink">
   </form>
+  </container>
 </div>

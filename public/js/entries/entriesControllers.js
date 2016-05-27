@@ -70,21 +70,21 @@
 
     // function for changing color of cards according to votes.
     function voteColor(votes) {
-      if (votes <= 10 ) {
+      if (votes <= 9 ) {
         return "blue"
-      } else if (votes <= 20) {
+      } else if (votes <= 19) {
         return "pink"
-      } else if (votes <= 30) {
+      } else if (votes <= 29) {
         return "orange"
-      } else if (votes <= 40) {
+      } else if (votes <= 39) {
         return "purple"
-      } else if (votes <= 50) {
+      } else if (votes <= 49) {
         return "green"
-      } else if (votes <= 60) {
+      } else if (votes <= 59) {
         return "red lighten-3"
-      } else if (votes <= 70) {
+      } else if (votes <= 69) {
         return "red lighten-2"
-      } else if (votes <= 80) {
+      } else if (votes <= 79) {
         return "red lighten-1"
       } else {
         return "red"

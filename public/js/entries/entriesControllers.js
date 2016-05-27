@@ -23,13 +23,13 @@
       });
 
       function destroy(entryToDelete) {
-        EntryResource.delete({id: entryToDelete._id}).$promise.then(function (response) {
-          console.log(response.message);
-          vm.entries = vm.entries.filter(function(entry) {
-            return entry != entryToDelete;
-          });
+      EntryResource.delete({id: entryToDelete._id}).$promise.then(function (response) {
+        console.log(response.message);
+        vm.entries = vm.entries.filter(function(entry) {
+          return entry != entryToDelete;
         });
-      }
+      });
+    }
 
       // function for upvotes
       function upvote(entry) {
@@ -49,6 +49,7 @@
     function EntryViewController(EntryResource, $stateParams) {
       var vm = this;
       vm.entry = {};
+      vm.voteColor = voteColor;
 
       EntryResource.get({id: $stateParams.id}).$promise.then(function(jsonEntry) {
           vm.entry = jsonEntry;
@@ -70,19 +71,35 @@
 
     // function for changing color of cards according to votes.
     function voteColor(votes) {
-      if (votes <= 9 ) {
-        return "blue"
-      } else if (votes <= 19) {
+      if (votes <= 4 ) {
+        return "blue lighten-3"
+      } else if (votes <= 9) {
         return "pink"
+      } else if (votes <= 14) {
+        return "blue lighten-2"
+      } else if (votes <= 19) {
+        return "blue lighten-3"
+      } else if (votes <= 24) {
+        return "blue"
       } else if (votes <= 29) {
-        return "orange"
+        return "pink lighten-1"
+      } else if (votes <= 34) {
+        return "pink lighten-2"
       } else if (votes <= 39) {
-        return "purple"
+        return "pink lighten-3"
+      } else if (votes <= 44) {
+        return "pink"
       } else if (votes <= 49) {
-        return "green"
+        return "orange lighten-3"
+      } else if (votes <= 54) {
+        return "orange lighten-2"
       } else if (votes <= 59) {
-        return "red lighten-3"
+        return "orange lighten-1"
+      } else if (votes <= 64) {
+        return "orange"
       } else if (votes <= 69) {
+        return "red lighten-3"
+      } else if (votes <= 74) {
         return "red lighten-2"
       } else if (votes <= 79) {
         return "red lighten-1"
